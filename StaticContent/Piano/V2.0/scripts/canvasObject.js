@@ -170,7 +170,7 @@ class Canvas {
             const totalOffset = constants.round((keyInOctave * this.whiteKeyWidth) + octaveOffset + whiteKeyBorderOffset, 2);
             const whiteKey = this.newKey(totalOffset, this.whiteKeyWidth, this.whiteKeyHeight,
                 this.createNoteForKey(constants.notes[keyInOctave], octaveIndex),
-                keyInOctave, octaveIndex + 2, true); //+2 bcz index starts from 0 and we want Octaves 2-6
+                keyInOctave, octaveIndex + constants.lowestOctave, true); //+lowestOctave bcz index starts from 0 and we want Octaves 2-6
             this.whiteKeys.push(whiteKey);
 
             whiteKeyBorderOffset += constants.borderThickness;
@@ -187,7 +187,7 @@ class Canvas {
 
             const blackKey = this.newKey(totalOffset, this.blackKeyWidth, this.blackKeyHeight,
                 this.createNoteForKey(constants.higherBlackNotes[keyInOctave], octaveIndex),
-                keyInOctave, octaveIndex + 2, false); //+2 bcz index starts from 0 and we want Octaves 2-6
+                keyInOctave, octaveIndex + constants.lowestOctave, false); //+lowestOctave bcz index starts from 0 and we want Octaves 2-6
             this.blackKeys.push(blackKey);
 
             blackKeyBorderOffset += constants.borderThickness;
@@ -195,7 +195,7 @@ class Canvas {
     };
 
     createNoteForKey(note, octaveIndex) {
-        return note + (octaveIndex + 2); //+2 bcz index starts from 0 and we want Octaves 2-6
+        return note + (octaveIndex + constants.lowestOctave); //+lowestOctave bcz index starts from 0 and we want Octaves 2-6
     }
 
     newKey(totalOffset, width, height, note, keyInOctave, octaveIndex, whiteKey) {
@@ -259,6 +259,18 @@ class Canvas {
         }
         //if nothing found return undefined
         return undefined;
+    }
+
+    changePlayableOctave(keyDown) {
+        //true = right, false = left
+        if (keyDown.code === "ArrowLeft") {
+            if (canvasObject.playableOctave > constants.lowestOctave)
+                canvasObject.playableOctave--;
+        } else {
+            if (canvasObject.playableOctave < constants.highestOctave)
+                canvasObject.playableOctave++;
+        }
+        this.render();
     }
 }
 

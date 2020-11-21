@@ -69,14 +69,17 @@ class Movement {
 
         document.addEventListener("keydown", function (keyDown) {
             if (!movementLogic.keyList[keyDown.code]) {
-                console.log(keyDown)
                 const noteFromMapping = KeyBindMapping.getKeyboardMapping(keyDown);
                 if (noteFromMapping == null) {
                     movementLogic.keyList[keyDown.code] = keyDown.code;
                     return;
                 }
                 movementLogic.keyList[keyDown.code] = noteFromMapping;
-                movementLogic.keyboardLogic(noteFromMapping, keyDown, true);
+                if (keyDown.code === "ArrowLeft" || keyDown.code === "ArrowRight") {
+                    canvasObject.changePlayableOctave(keyDown);
+                } else {
+                    movementLogic.keyboardLogic(noteFromMapping, keyDown, true);
+                }
             }
         });
 

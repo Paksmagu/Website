@@ -17,6 +17,8 @@ class  Constants {
         ]
         this.notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
         this.higherBlackNotes = ['C#', 'D#', 'F#', 'G#', 'A#'];
+        this.lowestOctave = 2;
+        this.highestOctave = 6;
         this.numberOfOctaves = 5; //getNoteForKey(note, octaveIndex) {
         this.whiteKeysInOctave = 7;
         this.blackKeysInOctave = 5;
