@@ -71,8 +71,6 @@ class KeyBindMapping {
         switch (keyEvent.code) {
             case "ArrowLeft":
             case "ArrowRight":
-            case "ArrowUp":
-            case "ArrowDown":
                 return keyEvent.code
             case "Digit1":
                 if (keyEvent.shiftKey) return "AChord minor";
