@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" 
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:article="http://ogp.me/ns/article#"
+  xmlns:book="http://ogp.me/ns/book#"
+  xmlns:profile="http://ogp.me/ns/profile#"
+  xmlns:video="http://ogp.me/ns/video#"
+  xmlns:product="http://ogp.me/ns/product#"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" 
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:article="http://ogp.me/ns/article#"
+  xmlns:book="http://ogp.me/ns/book#"
+  xmlns:profile="http://ogp.me/ns/profile#"
+  xmlns:video="http://ogp.me/ns/video#"
+  xmlns:product="http://ogp.me/ns/product#"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" 
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:article="http://ogp.me/ns/article#"
+  xmlns:book="http://ogp.me/ns/book#"
+  xmlns:profile="http://ogp.me/ns/profile#"
+  xmlns:video="http://ogp.me/ns/video#"
+  xmlns:product="http://ogp.me/ns/product#"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9 ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" 
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:article="http://ogp.me/ns/article#"
+  xmlns:book="http://ogp.me/ns/book#"
+  xmlns:profile="http://ogp.me/ns/profile#"
+  xmlns:video="http://ogp.me/ns/video#"
+  xmlns:product="http://ogp.me/ns/product#"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" dir="ltr" > <!--<![endif]-->
+
+<head><script>
+// akam-sw.js install script version 1.3.3
+"serviceWorker"in navigator&&"find"in[]&&function(){var e=new Promise(function(e){"complete"===document.readyState||!1?e():(window.addEventListener("load",function(){e()}),setTimeout(function(){"complete"!==document.readyState&&e()},1e4))}),n=window.akamServiceWorkerInvoked,r="1.3.3";if(n)aka3pmLog("akam-setup already invoked");else{window.akamServiceWorkerInvoked=!0,window.aka3pmLog=function(){window.akamServiceWorkerDebug&&console.log.apply(console,arguments)};function o(e){(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"sm.sw.s":e,"sm.sw.v":r}])}var i="/akam-sw.js",a=new Map;navigator.serviceWorker.addEventListener("message",function(e){var n,r,o=e.data;if(o.isAka3pm)if(o.command){var i=(n=o.command,(r=a.get(n))&&r.length>0?r.shift():null);i&&i(e.data.response)}else if(o.commandToClient)switch(o.commandToClient){case"enableDebug":window.akamServiceWorkerDebug||(window.akamServiceWorkerDebug=!0,aka3pmLog("Setup script debug enabled via service worker message"),p());break;case"boomerangMQ":o.payload&&(window.BOOMR_mq=window.BOOMR_mq||[]).push(o.payload)}aka3pmLog("akam-sw message: "+JSON.stringify(e.data))});var t=function(e){return new Promise(function(n){var r,o;r=e.command,o=n,a.has(r)||a.set(r,[]),a.get(r).push(o),navigator.serviceWorker.controller&&(e.isAka3pm=!0,navigator.serviceWorker.controller.postMessage(e))})},c=function(e){return t({command:"navTiming",navTiming:e})},s=null,m={},d=function(){var e=i;return s&&(e+="?othersw="+encodeURIComponent(s)),function(e,n){return new Promise(function(r,i){aka3pmLog("Registering service worker with URL: "+e),navigator.serviceWorker.register(e,n).then(function(e){aka3pmLog("ServiceWorker registration successful with scope: ",e.scope),r(e),o(1)}).catch(function(e){aka3pmLog("ServiceWorker registration failed: ",e),o(0),i(e)})})}(e,m)},g=ServiceWorkerContainer.prototype.register;if(ServiceWorkerContainer.prototype.register=function(n,r){return n.includes(i)?g.call(this,n,r):(aka3pmLog("Overriding registration of service worker for: "+n),s=new URL(n,window.location.href),m=r,navigator.serviceWorker.controller?new Promise(function(n,r){var o=navigator.serviceWorker.controller.scriptURL;if(o.includes(i)){var a=encodeURIComponent(s);o.includes(a)?(aka3pmLog("Cancelling registration as we already integrate other SW: "+s),navigator.serviceWorker.getRegistration().then(function(e){n(e)})):e.then(function(){aka3pmLog("Unregistering existing 3pm service worker"),navigator.serviceWorker.getRegistration().then(function(e){e.unregister().then(function(){return d()}).then(function(e){n(e)}).catch(function(e){r(e)})})})}else aka3pmLog("Cancelling registration as we already have akam-sw.js installed"),navigator.serviceWorker.getRegistration().then(function(e){n(e)})}):g.call(this,n,r))},navigator.serviceWorker.controller){var u=navigator.serviceWorker.controller.scriptURL;u.includes("/akam-sw.js")||u.includes("/akam-sw-preprod.js")||u.includes("/threepm-sw.js")||(aka3pmLog("Detected existing service worker. Removing and re-adding inside akam-sw.js"),s=new URL(u,window.location.href),e.then(function(){navigator.serviceWorker.getRegistration().then(function(e){m={scope:e.scope},e.unregister(),d()})}))}else e.then(function(){window.akamServiceWorkerPreprod&&(i="/akam-sw-preprod.js"),d()});if(window.performance){var w=window.performance.timing,l=w.responseEnd-w.responseStart;c(l)}e.then(function(){t({command:"pageLoad"})});var k=!1;function p(){window.akamServiceWorkerDebug&&!k&&(k=!0,aka3pmLog("Initializing debug functions at window scope"),window.aka3pmInjectSwPolicy=function(e){return t({command:"updatePolicy",policy:e})},window.aka3pmDisableInjectedPolicy=function(){return t({command:"disableInjectedPolicy"})},window.aka3pmDeleteInjectedPolicy=function(){return t({command:"deleteInjectedPolicy"})},window.aka3pmGetStateAsync=function(){return t({command:"getState"})},window.aka3pmDumpState=function(){aka3pmGetStateAsync().then(function(e){aka3pmLog(JSON.stringify(e,null,"\t"))})},window.aka3pmInjectTiming=function(e){return c(e)},window.aka3pmUpdatePolicyFromNetwork=function(){return t({command:"pullPolicyFromNetwork"})})}p()}}();</script>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/favicon.ico?v=2" type="image/vnd.microsoft.icon" />
+<meta name="rating" content="general" />
+<meta name="referrer" content="origin" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://community.jaspersoft.com/wiki/connecting-apache-web-server-tomcat-and-writing-re-direct-rules" />
+<link rel="shortlink" href="https://community.jaspersoft.com/wiki/connecting-apache-web-server-tomcat-and-writing-re-direct-rules" />
+<meta property="og:site_name" content="Jaspersoft Community" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://community.jaspersoft.com/wiki/connecting-apache-web-server-tomcat-and-writing-re-direct-rules" />
+<meta property="og:title" content="Connecting Apache Web Server to Tomcat and writing re-direct rules" />
+<meta property="og:description" content="Introduction In this article, we learn how to connect the Apache web server to the Tomcat server, and how to write re-direct rules. The key benefit of this is that it allows us to write re-direct rules in Apache to serve up static files directly, rather than having to go through Tomcat, which is less efficient and adds needless load. This article assumes that you have already installed a Tomcat server somewhere. It doesn&#039;t go through how to install the Apache web server on a system, other than to point out a simple way to install it on Ubuntu systems." />
+<meta name="dcterms.title" content="Connecting Apache Web Server to Tomcat and writing re-direct rules" />
+<meta name="dcterms.creator" content="gdmoreno" />
+<meta name="dcterms.date" content="2012-06-21T14:12-07:00" />
+<meta name="dcterms.type" content="Text" />
+<meta name="dcterms.format" content="text/html" />
+<meta name="dcterms.identifier" content="https://community.jaspersoft.com/wiki/connecting-apache-web-server-tomcat-and-writing-re-direct-rules" />
+  <title>Connecting Apache Web Server to Tomcat and writing re-direct rules | Jaspersoft Community</title>
+  <link href="https://plus.google.com/105174115369651797631" rel="publisher" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <meta property="og:image" content="//community.jaspersoft.com/sites/default/files/jaspersoft-community-tibco-logo-social.jpg?v=4" />
+  <link type="text/css" rel="stylesheet" href="https://community.jaspersoft.com/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://community.jaspersoft.com/sites/default/files/css/css_mxbvRAV0_YoXwGCXbsQzCkegc1pXHICzfd8PPQD9YE4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://community.jaspersoft.com/sites/default/files/css/css_6lR6M-IbHL9osCnXpORbAvis_5iL1PJD8FT8iU-SKq4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="//cloud.typography.com/6097072/672988/css/fonts.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://community.jaspersoft.com/sites/default/files/css/css_lhZ2r95cVv6XPZeCq2neqJ2WkJfOx4FGwB5NFslhk94.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://community.jaspersoft.com/sites/default/files/css/css_V4goc3zIUTbJTZybp1S0stI2YL6E6YOWKgd1Se_q43E.css" media="all" />
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+#quicktabs-jf-home-tabs ul.quicktabs-style-jasperforge li{width:calc(100% / 6);}
+
+/*]]>*/-->
+</style>
+<link type="text/css" rel="stylesheet" href="https://community.jaspersoft.com/sites/default/files/css/css_dHkQmtPjGs2Tm0cWPDP5hic4T2zvuTQ4hynFwVSUQFE.css" media="all" />
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+#quicktabs-jf-home-tabs ul.quicktabs-style-jasperforge li{width:calc(100% / 6);}
+
+/*]]>*/-->
+</style>
+<link type="text/css" rel="stylesheet" href="https://community.jaspersoft.com/sites/default/files/css/css_SGUt0AlhHb7oVMZHoF04t7A0CbMMmw9Iz_fK2Xf3g9w.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://community.jaspersoft.com/sites/default/files/css/css_fj1XVsAveb9yQkkxg_3EoIcgdaLfFa3TONMQ51Iy458.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://community.jaspersoft.com/sites/default/files/css/css_9XUZ1J2ptnYpLzmmHw1rO45u5HbH16o1jHwnfSNCeqg.css" media="all" />
+  <meta http-equiv="Content-Language" content="en" />
+    <script type="text/javascript" src="https://community.jaspersoft.com/sites/default/files/js/js_qikmINIYTWe4jcTUn8cKiMr8bmSDiZB9LQqvceZ6wlM.js"></script>
+<script type="text/javascript" src="https://community.jaspersoft.com/sites/default/files/js/js_DoIhnEFNgBOOzpRxqg9PB53wglxFjQrb4pndVjL7gyA.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+Drupal.settings.ais = [{"name":"front_slider_1200","size":"1200"}];
+Drupal.settings.ais_method = "width";
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://community.jaspersoft.com/sites/default/files/js/js_uAhMyP79CzfmBfIlnfegtSLW7GVeNZ5ICLd2hCJSwX0.js"></script>
+<script type="text/javascript" src="https://community.jaspersoft.com/sites/default/files/js/js__1chtDpfVwNQNzH1C_dNHDbYvUhJfl8iTu27Z66Xe6E.js"></script>
+<script type="text/javascript" src="//assets.adobedtm.com/eb3bce35b1b2394cf275fca0b5c54ad8528b21ff/satelliteLib-b122dc3cb66085519330a71561507fb45d04f37c.js"></script>
+<script type="text/javascript" src="https://community.jaspersoft.com/sites/default/files/js/js_xl00v0-cprwlTaS5j5PgHa-hGQIqu_D0Mipn-EWZBgQ.js"></script>
+<script type="text/javascript" src="//cdn2.funnelenvy.com/organization/5a556ca4488a1a4c5398309b/backstage-client.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"jasperforge","theme_token":"wZha3Qcsay-AkgbwEhHAmUAHbFUPx9fS4ht7-PDH-Tk","js":{"0":1,"1":1,"sites\/all\/modules\/lightbox2\/js\/lightbox.js":1,"modules\/statistics\/statistics.js":1,"2":1,"sites\/all\/modules\/jasperforge\/tibco_gdpr\/tibco_gdpr--set_cookie.js":1,"misc\/jquery.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"misc\/ui\/jquery.ui.core.min.js":1,"misc\/ui\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/eu_cookie_compliance\/js\/jquery.cookie-1.4.1.min.js":1,"misc\/jquery.form.js":1,"misc\/ui\/jquery.ui.position.min.js":1,"misc\/ui\/jquery.ui.autocomplete.min.js":1,"misc\/ajax.js":1,"3":1,"sites\/all\/modules\/admin_menu\/admin_devel\/admin_devel.js":1,"sites\/all\/modules\/jasperforge\/jasperforge_home\/jasperforge_home.js":1,"sites\/all\/modules\/jasperforge\/jasperforge_nav\/jasperforge_nav.js":1,"sites\/all\/modules\/jasperforge\/jasperforge_project\/jasperforge_project.js":1,"sites\/all\/modules\/jasperforge\/jasperforge_user\/jasperforge_user.js":1,"sites\/all\/modules\/jasperforge\/jasperforge_utils\/jasperforge_utils.downloads.js":1,"sites\/all\/modules\/marketo_ma\/js\/marketo_ma.js":1,"sites\/all\/modules\/jasperforge\/tibco_coveo\/theme\/CoveoJsSearch.js":1,"sites\/all\/modules\/jasperforge\/tibco_coveo\/theme\/DJ_All.js":1,"sites\/all\/modules\/jasperforge\/tibco_coveo\/theme\/tibcoCoveo.js":1,"sites\/all\/modules\/jasperforge\/tibco_coveo\/theme\/jasperforgesearch.js":1,"sites\/all\/modules\/jasperforge\/jasperforge_questions\/jasperforge_questions.js":1,"ais\/assets\/js\/ais.js":1,"sites\/all\/modules\/modal_forms\/js\/modal_forms_login.js":1,"sites\/all\/modules\/modal_forms\/js\/modal_forms_register.js":1,"sites\/all\/modules\/modal_forms\/js\/modal_forms_password.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox_load.js":1,"sites\/all\/modules\/hide_submit\/hide_submit.js":1,"misc\/collapse.js":1,"sites\/all\/modules\/jasperforge\/jasperforge_user\/js\/jasperforge_user_prompt.js":1,"sites\/all\/modules\/jquerymenu\/jquerymenu.js":1,"misc\/progress.js":1,"sites\/all\/modules\/ctools\/js\/modal.js":1,"sites\/all\/modules\/modal_forms\/js\/modal_forms_popup.js":1,"sites\/all\/modules\/pollanon\/js\/jquery.cookie.min.js":1,"sites\/all\/modules\/pollanon\/js\/pollanon.pack.js":1,"sites\/all\/modules\/quickbar\/js\/quickbar.js":1,"sites\/all\/modules\/tableofcontents\/js\/jquery.scrollTo-min.js":1,"sites\/all\/modules\/tableofcontents\/js\/jquery.localscroll-min.js":1,"sites\/all\/modules\/tableofcontents\/js\/tableofcontents.js":1,"sites\/all\/libraries\/tag-it\/js\/tag-it.js":1,"sites\/all\/modules\/rate\/rate.js":1,"\/\/assets.adobedtm.com\/eb3bce35b1b2394cf275fca0b5c54ad8528b21ff\/satelliteLib-b122dc3cb66085519330a71561507fb45d04f37c.js":1,"sites\/all\/themes\/fusion\/fusion_core\/js\/script.js":1,"sites\/all\/themes\/jasperforge\/js\/jasperforge.js":1,"\/\/cdn2.funnelenvy.com\/organization\/5a556ca4488a1a4c5398309b\/backstage-client.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.autocomplete.css":1,"sites\/all\/modules\/achievements\/achievements.css":1,"modules\/aggregator\/aggregator.css":1,"sites\/all\/modules\/ais\/assets\/css\/ais.css":1,"modules\/book\/book.css":1,"sites\/all\/modules\/calendar\/css\/calendar_multiday.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/date\/date_repeat_field\/date_repeat_field.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/jasperforge\/jasperforge_home\/jasperforge_home.css":1,"sites\/all\/modules\/jasperforge\/jasperforge_project\/jasperforge_project.css":1,"sites\/all\/modules\/jasperforge\/jasperforge_tracker\/jasperforge_tracker.css":1,"sites\/all\/modules\/jasperforge\/jasperforge_user\/jasperforge_user.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/jasperforge\/jasperforge_questions\/jasperforge_questions.css":1,"sites\/all\/modules\/jasperforge\/jasperforge_vote_widget\/jasperforge_vote_widget.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"\/\/cloud.typography.com\/6097072\/672988\/css\/fonts.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/geshifilter\/geshifilter.css":1,"sites\/all\/modules\/hide_submit\/hide_submit.css":1,"sites\/all\/modules\/jasperforge\/jasperforge_ckeditor_profiles\/css\/textbook.css":1,"sites\/all\/modules\/jasperforge\/jasperforge_docs\/theme\/jasperforge_docs--node.css":1,"sites\/all\/modules\/jasperforge\/jasperforge_wiki\/theme\/jasperforge_wiki--wiki.css":1,"sites\/all\/modules\/jquerymenu\/jquerymenu.css":1,"sites\/all\/modules\/lightbox2\/css\/lightbox.css":1,"sites\/all\/modules\/ctools\/css\/modal.css":1,"sites\/all\/modules\/modal_forms\/css\/modal_forms_popup.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/pollanon\/pollanon.css":1,"sites\/all\/modules\/rate\/rate.css":1,"sites\/all\/modules\/jasperforge\/tibco_gdpr\/theme\/tibco_gdpr--gdpr_cookies.css":1,"sites\/all\/modules\/quickbar\/theme\/quickbar.css":1,"sites\/all\/modules\/tableofcontents\/tableofcontents.css":1,"sites\/all\/modules\/best_answer\/best_answer.css":1,"sites\/all\/libraries\/tag-it\/css\/jquery.tagit.css":1,"sites\/all\/libraries\/tag-it\/css\/tagit.ui-zendesk.css":1,"0":1,"sites\/all\/modules\/rate\/templates\/thumbs-up\/thumbs-up.css":1,"1":1,"sites\/all\/modules\/feedback_simple\/feedback_simple.css":1,"sites\/all\/themes\/fusion\/fusion_core\/css\/fusion-style.css":1,"sites\/all\/themes\/fusion\/fusion_core\/css\/fusion-typography.css":1,"sites\/all\/themes\/fusion\/fusion_core\/skins\/core\/fusion-core-skins.css":1,"sites\/all\/themes\/jasperforge\/css\/jasperforge.css":1,"sites\/all\/themes\/jasperforge\/css\/font-awesome.css":1,"sites\/all\/themes\/jasperforge\/css\/font-awesome-ie7.css":1,"sites\/all\/themes\/jasperforge\/css\/jasperforge2.css":1,"sites\/all\/themes\/jasperforge\/css\/jasperforge3.css":1,"sites\/all\/themes\/jasperforge\/css\/CoveoFullSearchNewDesign.css":1,"sites\/all\/modules\/jasperforge\/jasperforge_community_profile\/theme\/global.css":1,"sites\/all\/themes\/fusion\/fusion_core\/css\/grid12-1200.css":1}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"hide_submit":{"hide_submit_status":true,"hide_submit_method":"disable","hide_submit_css":"hide-submit-disable","hide_submit_abtext":"","hide_submit_atext":"","hide_submit_hide_css":"hide-submit-processing","hide_submit_hide_text":"Processing...","hide_submit_hide_fx":0},"jcarousel":{"ajaxPath":"\/jcarousel\/ajax\/views"},"jquerymenu":{"hover":0,"animate":0,"edit_link":0,"click_to_expand":0},"lightbox2":{"rtl":0,"file_path":"\/(\\w\\w\/)public:\/","default_image":"\/sites\/all\/modules\/lightbox2\/images\/brokenimage.jpg","border_size":10,"font_color":"000","box_color":"fff","top_position":"","overlay_opacity":"0.8","overlay_color":"000","disable_close_click":1,"resize_sequence":0,"resize_speed":400,"fade_in_speed":400,"slide_down_speed":600,"use_alt_layout":0,"disable_resize":0,"disable_zoom":0,"force_show_nav":0,"show_caption":1,"loop_items":0,"node_link_text":"View Image Details","node_link_target":0,"image_count":"Image !current of !total","video_count":"Video !current of !total","page_count":"Page !current of !total","lite_press_x_close":"press \u003Ca href=\u0022#\u0022 onclick=\u0022hideLightbox(); return FALSE;\u0022\u003E\u003Ckbd\u003Ex\u003C\/kbd\u003E\u003C\/a\u003E to close","download_link_text":"","enable_login":false,"enable_contact":false,"keys_close":"c x 27","keys_previous":"p 37","keys_next":"n 39","keys_zoom":"z","keys_play_pause":"32","display_image_size":"original","image_node_sizes":"()","trigger_lightbox_classes":"","trigger_lightbox_group_classes":"","trigger_slideshow_classes":"","trigger_lightframe_classes":"","trigger_lightframe_group_classes":"","custom_class_handler":0,"custom_trigger_classes":"","disable_for_gallery_lists":true,"disable_for_acidfree_gallery_lists":true,"enable_acidfree_videos":true,"slideshow_interval":5000,"slideshow_automatic_start":true,"slideshow_automatic_exit":true,"show_play_pause":true,"pause_on_next_click":false,"pause_on_previous_click":true,"loop_slides":false,"iframe_width":600,"iframe_height":400,"iframe_border":1,"enable_video":0,"useragent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/78.0.3904.108 Safari\/537.36"},"CToolsModal":{"loadingText":"Loading...","closeText":"Close Window","closeImage":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/community.jaspersoft.com\/sites\/all\/modules\/ctools\/images\/icon-close-window.png\u0022 alt=\u0022Close window\u0022 title=\u0022Close window\u0022 \/\u003E","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/community.jaspersoft.com\/sites\/all\/modules\/ctools\/images\/throbber.gif\u0022 alt=\u0022Loading\u0022 title=\u0022Loading...\u0022 \/\u003E"},"modal-popup-small":{"modalSize":{"type":"fixed","width":300,"height":300},"modalOptions":{"opacity":0.84999999999999998,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/community.jaspersoft.com\/sites\/all\/modules\/modal_forms\/images\/loading_animation.gif\u0022 alt=\u0022Loading...\u0022 title=\u0022Loading\u0022 \/\u003E","closeText":"Close"},"modal-popup-medium":{"modalSize":{"type":"fixed","width":550,"height":450},"modalOptions":{"opacity":0.84999999999999998,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/community.jaspersoft.com\/sites\/all\/modules\/modal_forms\/images\/loading_animation.gif\u0022 alt=\u0022Loading...\u0022 title=\u0022Loading\u0022 \/\u003E","closeText":"Close"},"modal-popup-login":{"modalSize":{"type":"fixed","width":506,"height":250},"modalOptions":{"opacity":0.84999999999999998,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/community.jaspersoft.com\/sites\/all\/modules\/modal_forms\/images\/loading_animation.gif\u0022 alt=\u0022Loading...\u0022 title=\u0022Loading\u0022 \/\u003E","closeText":"Close"},"modal-popup-login-register":{"modalSize":{"type":"fixed","width":800,"height":420},"modalOptions":{"opacity":0.84999999999999998,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/community.jaspersoft.com\/sites\/all\/modules\/modal_forms\/images\/loading_animation.gif\u0022 alt=\u0022Loading...\u0022 title=\u0022Loading\u0022 \/\u003E","closeText":"Close"},"modal-popup-login-register-step2":{"modalSize":{"type":"fixed","width":480,"height":620},"modalOptions":{"opacity":0.84999999999999998,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/community.jaspersoft.com\/sites\/all\/modules\/modal_forms\/images\/loading_animation.gif\u0022 alt=\u0022Loading...\u0022 title=\u0022Loading\u0022 \/\u003E","closeText":"Close"},"modal-popup-large":{"modalSize":{"type":"scale","width":0.80000000000000004,"height":0.80000000000000004},"modalOptions":{"opacity":0.84999999999999998,"background":"#000"},"animation":"fadeIn","modalTheme":"ModalFormsPopup","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/community.jaspersoft.com\/sites\/all\/modules\/modal_forms\/images\/loading_animation.gif\u0022 alt=\u0022Loading...\u0022 title=\u0022Loading\u0022 \/\u003E","closeText":"Close"},"tibcoCoveo":{"key":"44aad8e1-1376-4b26-b233-f3e420150d36"},"tableofcontents":{"collapse":false,"scroll":true},"rate":{"basePath":"\/rate\/vote\/js","destination":"node\/201060"},"better_exposed_filters":{"views":{"wiki_page_info":{"displays":{"block":{"filters":[]}}}}},"urlIsAjaxTrusted":{"\/search":true},"marketo_ma":{"track":true,"key":"221-BCQ-142","library":"\/\/munchkin.marketo.net\/munchkin.js","initParams":[]},"statistics":{"data":{"nid":"201060"},"url":"\/modules\/statistics\/statistics.php"},"password":{"strengthTitle":"Password compliance:"},"type":"setting"});
+//--><!]]>
+</script>
+  <script type="text/javascript"> 
+var $buoop = {vs:{i:9,f:15,o:10.6,s:4,n:9}};
+$buoop.ol = window.onload; 
+window.onload=function(){ 
+ try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+ var e = document.createElement("script"); 
+ e.setAttribute("type", "text/javascript"); 
+ e.setAttribute("src", "//browser-update.org/update.js"); 
+ document.body.appendChild(e); 
+} 
+</script>
+  
+<!-- Facebook conversion pixels -->
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  _fbq.push(['addPixelId', '256158104585084']);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', 'PixelInitialized', {}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=256158104585084&amp;ev=NoScript" /></noscript>
+<!-- End Facebook conversion pixels -->
+
+
+  <script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"false","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"","rua.cook":"false","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false"}]);</script>
+  <script>!function(){function o(n,i){if(n&&i)for(var r in i)i.hasOwnProperty(r)&&(void 0===n[r]?n[r]=i[r]:n[r].constructor===Object&&i[r].constructor===Object?o(n[r],i[r]):n[r]=i[r])}try{var n=decodeURIComponent("");if(n.length>0&&window.JSON&&"function"==typeof window.JSON.parse){var i=JSON.parse(n);void 0!==window.BOOMR_config?o(window.BOOMR_config,i):window.BOOMR_config=i}}catch(r){window.console&&"function"==typeof window.console.error&&console.error("mPulse: Could not parse configuration",r)}}();</script>
+  <script>!function(e){var a="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,a="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="4XZ34-PPZVM-EBGUQ-ATQ9F-294ZD",function(){function n(a){e.BOOMR_onload=a&&a.timeStamp||(new Date).getTime()}if(!e.BOOMR||!e.BOOMR.version&&!e.BOOMR.snippetExecuted){e.BOOMR=e.BOOMR||{},e.BOOMR.snippetExecuted=!0;var i,o,r,_=document.createElement("iframe");if(e[t])e[t]("load",n,!1);else if(e.attachEvent)e.attachEvent("onload",n);_.src="javascript:void(0)",_.title="",_.role="presentation",(_.frameElement||_).style.cssText="width:0;height:0;border:0;display:none;",r=document.getElementsByTagName("script")[0],r.parentNode.insertBefore(_,r);try{o=_.contentWindow.document}catch(O){i=document.domain,_.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",o=_.contentWindow.document}o.open()._l=function(){var e=this.createElement("script");if(i)this.domain=i;e.id="boomr-if-as",e.src=a+"4XZ34-PPZVM-EBGUQ-ATQ9F-294ZD",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(e)},o.write("<bo"+'dy onload="document._l();">'),o.close()}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var a=""=="true"?1:0,t="",n="ldccs5qxbxzv2xpcmmlq-f-d30768e9b-clientnsv4-s.akamaihd.net",i={"ak.v":25,"ak.cp":"707387","ak.ai":parseInt("461739",10),"ak.ol":"0","ak.cr":8,"ak.ipv":4,"ak.proto":"h2","ak.rid":"454c8fe7","ak.r":28076,"ak.a2":a,"ak.m":"","ak.n":"essl","ak.bpcip":"88.196.41.0","ak.cport":58117,"ak.gh":"95.101.142.223","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1575117591"};if(""!==t)i["ak.ruds"]=t;var o={i:!1,av:function(a){var t="http.initiator";if(a&&(!a[t]||"spa_hard"===a[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:n,init:function(){if(!o.i){var e=BOOMR.subscribe;e("before_beacon",o.av,null,null),e("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body id="pid-wiki-connecting-apache-web-server-tomcat-and-writing-re-direct-rules" class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-201060 node-type-wiki-page font-family-sans-serif-sm font-size-12 grid-type-1200 grid-width-12 sidebars-split" >
+  <div id="skip-link">
+    <a href="#main-content-area">Skip to main content area</a>
+  </div>
+  <img style="display:none;" src="//community.jaspersoft.com/sites/default/files/jaspersoft-community-tibco-logo-social.jpg?v=4" id="campaign-icon" />
+  <script>
+(function(w,d,s,l){var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src="//consent.trustarc.com/notice?domain=tibco.com&c=teconsent&js=nj&noticeType=bb&text=true&gtm=1&oc=1&px=300";f.parentNode.insertBefore(j,f);})(window,document,'script');
+</script>  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-T7BJHQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+analyticsDataLayer = [{"isMarketoForm":false,"pageID":"201060","pageLastEditDate":"20140422"}];
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[1],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','analyticsDataLayer','GTM-T7BJHQ');</script>
+<!-- End Google Tag Manager -->      <div id="page" class="page">
+    <div id="page-inner" class="page-inner">
+
+	<div id="header-bg">
+		<div id="header-bg-1"></div>
+		<div id="header-bg-2"></div>
+		<div id="header-bg-3"></div>
+		<div id="header-bg-4"></div>
+		<div id="header-bg-5">
+			<div id="header-bg-wave">
+				<div id="header-bg-radial"></div>
+			</div>
+		</div>
+		<div id="header-bg-6"></div>
+		<div id="header-bg-7"></div>
+		<div id="header-bg-8"></div>
+		<div id="header-bg-9"></div>
+	</div>
+	
+
+      <!-- header-group region: width = grid_width -->
+      <div id="header-group" class="header-group region clearfix grid12-12">
+	  
+	  
+		<ul id="tertiary-menu">
+			<li><a href="http://www.jaspersoft.com/products">Products</a></li>
+			<li><a href="http://www.jaspersoft.com/solutions">Solutions</a></li>
+			<li><a href="http://www.jaspersoft.com/services">Services</a></li>
+			<li><a href="http://www.jaspersoft.com/resources">Resources</a></li>
+		</ul>
+
+                <div id="header-site-info" class="header-site-info block">
+          <div id="header-site-info-inner" class="header-site-info-inner inner">
+                        <div id="logo">
+              <!-- <a href="/" title="Jaspersoft Community"><img src="https://community.jaspersoft.com/sites/default/files/logo_1.png" alt="Jaspersoft Community" /></a> -->
+              <a href="/" title="Jaspersoft Community"><img src="/sites/all/themes/jasperforge/images/community_logo.png" alt="Jaspersoft Community" /></a>
+            </div>
+                                  </div><!-- /header-site-info-inner -->
+        </div><!-- /header-site-info -->
+        
+                
+<!-- main-menu region -->
+<div id="main-menu" class="region region-main-menu main-menu  grid12-12">
+  <div id="block-multiblock-2" class="block block-multiblock grid12-3 first  odd">
+  <div class="gutter inner clearfix">
+	
+		<!-- <span class="block-icon "></span> -->
+	  
+            
+    <div class="content clearfix">
+      <form action="/search" method="get" id="views-exposed-form-search-sapi--page-1" accept-charset="UTF-8"><div><div class="views-exposed-form">
+  <div class="views-exposed-widgets clearfix">
+          <div id="edit-query-wrapper" class="views-exposed-widget views-widget-filter-search_api_views_fulltext">
+                  <label for="edit-query">
+            Search          </label>
+                        <div class="views-widget">
+          <div class="form-item form-type-textfield form-item-query">
+ <input type="text" id="edit-query" name="query" value="" size="30" maxlength="128" class="form-text" />
+</div>
+        </div>
+              </div>
+                    <div class="views-exposed-widget views-submit-button">
+      <input type="submit" id="edit-submit-search-sapi-" name="" value="Search" class="form-submit" />    </div>
+      </div>
+</div>
+</div></form>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+<div id="block-system-main-menu" class="block block-system block-menu   even">
+  <div class="gutter inner clearfix">
+	
+		<!-- <span class="block-icon "></span> -->
+	  
+            <h2 class="title block-title">Main menu</h2>
+        
+    <div class="content clearfix">
+      <ul class="menu"><li class="first leaf"><a href="/answers" title="">Answers</a></li>
+<li class="leaf"><a href="/exchange">Exchange</a></li>
+<li class="leaf"><a href="/documentation">Docs</a></li>
+<li class="leaf active-trail"><a href="/wiki" title="" class="active-trail">Wiki</a></li>
+<li class="leaf"><a href="/planet" title="">Planet</a></li>
+<li class="last leaf"><a href="/bug-tracker" title="">Tracker</a></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+<div id="block-jasperforge_home-jasperforge_prefix_menu" class="block block-jasperforge-home   odd">
+  <div class="gutter inner clearfix">
+	
+		<!-- <span class="block-icon "></span> -->
+	  
+            
+    <div class="content clearfix">
+      <ul class="links"><li class="0 first"><a href="https://www.jaspersoft.com" target="_blank">Jaspersoft.com</a></li>
+<li class="1"><a href="https://support.tibco.com/s" target="_blank">Support</a></li>
+<li class="2"><a href="https://www.tibco.com/contact-us" target="_blank">Contact</a></li>
+<li class="3"><a href="/global-search">Search</a></li>
+<li class="4 last"><a href="/user/login">Login/Register</a></li>
+</ul>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+<div id="block-jasperforge_home-jasperforge_header_buttons" class="block block-jasperforge-home grid12-3   even">
+  <div class="gutter inner clearfix">
+	
+		<!-- <span class="block-icon "></span> -->
+	  
+            
+    <div class="content clearfix">
+      <a href="/download" class="button green">Download Now <span class="dl-circ"><span class="dl-tri"></span></span></a>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+<div id="block-jasperforge_home-jasperforge_mobile_main_menu" class="block block-jasperforge-home  last odd">
+  <div class="gutter inner clearfix">
+	
+		<!-- <span class="block-icon "></span> -->
+	  
+            
+    <div class="content clearfix">
+      <select id="mobile-main-menu"><option value="answers">Answers</option><option value="exchange">Exchange</option><option value="documentation">Docs</option><option value="wiki">Wiki</option><option value="planet">Planet</option><option value="bug-tracker">Tracker</option></select>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+</div><!-- /main-menu -->
+      </div><!-- /header-group -->
+
+      <!-- main region: width = grid_width -->
+      <div id="main" class="main region clearfix grid12-12">
+        
+        <!-- content group: width = grid_width - sidebar_first_width - sidebar_second_width -->
+        <div id="content-group" class="content-group region nested grid12-9">
+          <a id="main-content-area"></a>
+          <div id="breadcrumbs" class="breadcrumbs block">
+<div id="breadcrumbs-inner" class="breadcrumbs-inner gutter">
+<h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a> » <a href="/wiki">Wiki</a> » <a href="/wiki/connecting-apache-web-server-tomcat-and-writing-re-direct-rules" class="active">Connecting Apache Web Server to Tomcat and writing re-direct rules</a></div></div><!-- /breadcrumbs-inner -->
+</div><!-- /breadcrumbs -->
+                              <div id="content-inner" class="content-inner block">
+            <div id="content-inner-inner" class="content-inner-inner inner">                                          <h1 class="title">Connecting Apache Web Server to Tomcat and writing re-direct rules</h1>
+                                                                  <div id="content-content" class="content-content">
+                
+<!-- content region -->
+<div id="content" class="region region-content content nested grid12-9">
+  <div id="block-system-main" class="block block-system first last odd">
+  <div class="gutter inner clearfix">
+	
+		<!-- <span class="block-icon "></span> -->
+	  
+            
+    <div class="content clearfix">
+      <div id="node-201060" class="node node-wiki-page odd full-node clearfix" about="/wiki/connecting-apache-web-server-tomcat-and-writing-re-direct-rules" typeof="sioc:Item foaf:Document">
+  <div class="inner">
+    
+            <span property="dc:title" content="Connecting Apache Web Server to Tomcat and writing re-direct rules" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+    
+    <div class="content">
+      <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><div id="toc" class='toc'>
+<div class='toc-title'>Table of Contents<span class="toc-toggle-message">&nbsp;</span></div>
+<div class='toc-list'>
+<ul>
+	<li class="toc-level-1"><a href="#Introduction">Introduction</a></li>
+	<li class="toc-level-1"><a href="#Setting_up_the_Apache_web_server_on_Ubuntu">Setting up the Apache web server on Ubuntu</a></li>
+	<li class="toc-level-1"><a href="#Enable_the_AJP_Connector_on_Tomcat">Enable the AJP Connector on Tomcat</a></li>
+	<li class="toc-level-1"><a href="#Installing_and_configuring_mod_jk_on_Ubuntu">Installing and configuring mod_jk on Ubuntu</a>
+<ul>
+	<li class="toc-level-2"><a href="#Troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+	<li class="toc-level-1"><a href="#Configure_which_URLs_to_manage_with_Apache">Configure which URLs to manage with Apache</a></li>
+	<li class="toc-level-1"><a href="#Add_the_JkUnMount_directive">Add the JkUnMount directive</a></li>
+	<li class="toc-level-1"><a href="#How_to_verify_that_it-s_working">How to verify that it's working</a></li>
+</ul>
+</div>
+</div><h2 id="Introduction">Introduction</h2>
+<p>In this article, we learn how to connect the Apache web server to the Tomcat server, and how to write re-direct rules. The key benefit of this is that it allows us to write re-direct rules in Apache to serve up static files directly, rather than having to go through Tomcat, which is less efficient and adds needless load.</p>
+<p>This article assumes that you have already installed a Tomcat server somewhere. It doesn't go through how to install the Apache web server on a system, other than to point out a simple way to install it on Ubuntu systems.</p>
+<h2 id="Setting_up_the_Apache_web_server_on_Ubuntu">Setting up the Apache web server on Ubuntu</h2>
+<p>This will vary from system to system. If you have Ubuntu, you can download it and install it like this, from the command line:</p>
+<p style="margin-left: 40px;"><em><span style="color:#696969;">$ sudo apt-get install apache2 </span></em></p>
+<p>This will install Apache 2 to your environment. In a typical Ubuntu installation, the web root is in /var/www, and the configuration files are in /etc/apache2.</p>
+<h2 id="Enable_the_AJP_Connector_on_Tomcat">Enable the AJP Connector on Tomcat</h2>
+<p>You'll need to enable the AJP Connector in Tomcat, so that the Apache web server can redirect requests meant for JRS from Apache to Tomcat. You did by editing Tomcat's server.xml file, and making sure that the connector below is active and not commented out.</p>
+<p style="margin-left: 40px;"><em><span style="color:#696969;"><!-- Define an AJP 1.3 Connector on port 8009 --></span>&lt;!-- Define an AJP 1.3 Connector on port 8009 --&gt;<br />
+&lt;Connector port="8009" protocol="AJP/1.3" redirectPort="8443" /&gt;</em></p>
+<p>You'll need to restart the Tomcat server for this change to take effect.</p>
+<h2 id="Installing_and_configuring_mod_jk_on_Ubuntu">Installing and configuring mod_jk on Ubuntu</h2>
+<p>Mod_jk is an Apache web server module that allows the web server to interface with the Tomcat application server. Installing it and configuring it are the keys to getting the web server and the application server working together.</p>
+<p style="margin-left: 40px;"><em><span style="color:#696969;">$ sudo apt-get install libapache2-mod-jk </span></em></p>
+<p>Execute this command to activate the new configuration:</p>
+<p style="margin-left: 40px;"><em><span style="color:#696969;">/etc/init.d/apache2 restart </span></em></p>
+<p>Edit or create the /etc/apache2/workers.properties file:</p>
+<p style="margin-left: 40px;"><em><span style="color:#696969;"># Define 1 real worker using ajp13<br />
+worker.list=worker1<br />
+# Set properties for worker1 (ajp13)<br />
+worker.worker1.type=ajp13<br />
+worker.worker1.host=localhost<br />
+worker.worker1.port=8009</span></em></p>
+<p>Now reference this file in the /etc/apache2/apache2.conf by adding these lines:</p>
+<p style="margin-left: 40px;"><em><span style="color:#696969;">JkWorkersFile /etc/apache2/workers.properties<br />
+# Where to put jk shared memory<br />
+# Update this path to match your local state directory or logs directory<br />
+JkShmFile /var/log/apache2/mod_jk.shm<br />
+# Where to put jk logs<br />
+# Update this path to match your logs directory location (put mod_jk.log next to access_log)<br />
+JkLogFile /var/log/apache2/mod_jk.log<br />
+# Set the jk log level [debug/error/info]<br />
+JkLogLevel info<br />
+# Select the timestamp log format<br />
+JkLogStampFormat </span><span style="color:#ff0000;">"[ %a %b %d %H:%M:%S %Y ] "</span></em></p>
+<h3 id="Troubleshooting">Troubleshooting</h3>
+<p>When restarting the Apache web server, it's possible that you may get a <strong>JkWorkersFile only allowed once</strong> error message after making that last modification to apache.conf; that's because the workers file has been defined elsewhere.</p>
+<p>If that happens, you can check the <strong>mods-available</strong> directory for the <strong>jk.conf</strong> file, which will contain an entry to the JkWorkersFile directive. The directive will specify where workers.properties file is located, and you can edit it to either add your own worker configuration to it, or, what is more likely, to use a worker that's already defined there that takes care of the AJP connector.</p>
+<p>In that case, all you have to do if undo the changes you made to the apache2.conf file, and reference the worker in the 000-default file. That step is covered in the next section.</p>
+<h2 id="Configure_which_URLs_to_manage_with_Apache">Configure which URLs to manage with Apache</h2>
+<p>At this point, you'll need to configure Apache to tell it which URLs to process and hand off to Tomcat, and which URLs you want Apache itself to process. For both cases, you'll need to modify /etc/apache2/sites-enabled/000-default. You can add entries right below the "DocumentRoot" line, within the VirtualHost settings. Add the following line under the DocumentRoot entry. This makes it so that you can request JRS via the Apache web server.</p>
+<p style="margin-left: 40px;"><em><span style="color:#696969;">JkMount /jasperserver-pro* worker1</span></em></p>
+<p>Save the file, and restart the apache service (/etc/init.d/apache2 restart). If you now go to <a href="http://localhost/jasperserver-pro">http://localhost/jasperserver-pro</a>, you should see the normal JasperReports Server login screen. What you have accomplished so far is to put the Apache web server in front of Tomcat.</p>
+<h2 id="Add_the_JkUnMount_directive">Add the JkUnMount directive</h2>
+<p>So far so good, but we still need a better of dealing with static files. The modification so far passes every single JRS request from Apache to Tomcat, including requests for static files. We want Apache to serve up static files and not have Tomcat do it.</p>
+<p>Apache is much better suited for serving up static files than Tomcat, and by taking this approach we lighten Tomcat's load. Tomcat can now concentrate on serving up dynamic application content.</p>
+<p>The steps for putting this in place are:</p>
+<ul><li>Copying over the static files from the web application to the Apache web server root</li>
+<li>Add "JkUnMount" entries that intercept these incoming requests</li>
+<li>Restart the Apache web server.</li>
+</ul><p>The example I did deals with the "scripts" folder containing JavaScript files. I followed these steps:</p>
+<ul><li>I created the /var/www/jasperserver-pro folder</li>
+<li>I copied over scripts folder from the JRS web application to the above directory.</li>
+<li>I added the "JkUnMount" entry below, right under the JkMount entry I had added before:</li>
+</ul><p style="margin-left: 40px;"><em><span style="color:#696969;">JkUnMount /jasperserver-pro/scripts* worker1 </span></em></p>
+<p>You can repeat this process as many items as you want; all you need to do is create additional "JkUnMount" entries to the /etc/apache2/sites-enabled/000-default file. After you're done, you'll need to re-start Apache by running this command:</p>
+<p style="margin-left: 40px;"><em><span style="color:#696969;">/etc/init.d/apache2 restart </span></em></p>
+<h2 id="How_to_verify_that_it-s_working">How to verify that it's working</h2>
+<p>A simple way of verifying that the configuration is working is to request one of the files that Apache should serve up and then verify the logs - it should show up in Apache's logs, and not in the Tomcat logs.</p>
+<p>For example, request this file with the browser:</p>
+<p style="margin-left: 40px;"><em><span style="color:#696969;"><a href="http://localhost/jasperserver-pro/scripts/resource.base.js">http://localhost/jasperserver-pro/scripts/resource.base.js</a> </span></em></p>
+<p>We had previously added a "JkUnMount" entry for the scripts folder, and we had also copied the scripts folder to Apache's web root (/var/www). So when we look at the logs, this request should show up in Apache's log files (somewhere like /var/logs/apache2/access.log, as defined in the apache2.conf file).</p>
+<p>You can also verify the Tomcat logs, and you will see that the file request wasn't processed by Tomcat.</p>
+<p> </p>
+</div></div></div>    </div>
+
+
+    <ul class="links inline"><li class="comment_forbidden first last"><span><h2><a href="/user/login?destination=node/201060">Log in or register</a> to post comments</h2></span></li>
+</ul>      </div><!-- /inner -->
+</div>
+    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+</div><!-- /content -->
+              </div><!-- /content-content -->
+</div><!-- /content-inner-inner -->
+          </div><!-- /content-inner -->
+        </div><!-- /content-group -->
+
+        
+<!-- sidebar-second region -->
+<div id="sidebar-second" class="region region-sidebar-second sidebar-second nested grid12-3 sidebar">
+  <div id="block-jasperforge_utils-jasperforge_wiki_create" class="block block-jasperforge-utils first  odd">
+  <div class="gutter inner clearfix">
+	
+		<!-- <span class="block-icon "></span> -->
+	  
+            
+    <div class="content clearfix">
+      <a href="/user/login?0=node/add/wiki-page" class="button green">Create New Wiki Page</a>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+<div id="block-views-wiki_page_info-block" class="block block-views   even">
+  <div class="gutter inner clearfix">
+	
+		<!-- <span class="block-icon "></span> -->
+	  
+            
+    <div class="content clearfix">
+      <div class="view view-wiki-page-info view-id-wiki_page_info view-display-id-block view-dom-id-25257c24159d23a0e7c1c034c40919a4">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1">
+      
+  <div class="views-field views-field-field-wiki-page-status">    <span class="views-label views-label-field-wiki-page-status">Page Status</span>    <span class="field-content">No Known Problems</span>  </div>  
+  <div class="views-field views-field-field-wiki-page-type">    <span class="views-label views-label-field-wiki-page-type">Page Type</span>    <span class="field-content">Integration, Troubleshooting</span>  </div>  
+  <div class="views-field views-field-field-wiki-audience">    <span class="views-label views-label-field-wiki-audience">Audience</span>    <span class="field-content">Administrator</span>  </div>  
+  <div class="views-field views-field-field-wiki-features">    <span class="views-label views-label-field-wiki-features">Features</span>    <span class="field-content">JasperReports Server</span>  </div>  
+  <div class="views-field views-field-field-wiki-project">    <span class="views-label views-label-field-wiki-project">Project</span>    <span class="field-content">JasperReports® Server</span>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+<div id="block-block-3" class="block block-block   odd">
+  <div class="gutter inner clearfix">
+	
+		<!-- <span class="block-icon "></span> -->
+	  
+            
+    <div class="content clearfix">
+      <div class="rate-widget-2 rate-widget clear-block rate-average rate-widget-thumbs_up rate-6d32482f4e921c91d046bd2853959d13 rate-node-201060-2-1" id="rate-node-201060-2-1--2"><a class="rate-button rate-thumbs-up-btn-up" id="rate-button-2" rel="nofollow" href="/wiki/connecting-apache-web-server-tomcat-and-writing-re-direct-rules?rate=HvbBPhn5PV6gbcLN2b7hBJC370NbiSN_rwk7H3UeOUk" title="up">up</a><div class="rate-info">105 users found this helpful.</div></div>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+<div id="node-201060" class="jasperforge-tags-tagger"><div id="block-jasperforge_tags-jasperforge_tags_widget" class="block block-jasperforge-tags  last even">
+  <div class="gutter inner clearfix">
+	
+		<!-- <span class="block-icon "></span> -->
+	  
+            <h2 class="title block-title">Tags</h2>
+        
+    <div class="content clearfix">
+      <div class="field field-name-field-tags field-type-taxonomy-term-reference field-label-hidden"><div class="field-items"><div class="field-item even"><div id="jft-widget"><ul class="tagit ui-widget ui-widget-content ui-corner-all"><li class="tagit-choice tagit-choice-readonly"><a href="/search/tags/5414?query="><span class="tagit-label">Administration</span></a></li><li class="tagit-choice tagit-choice-readonly"><a href="/search/tags/5406?query="><span class="tagit-label">Troubleshooting</span></a></li><li class="tagit-choice tagit-choice-readonly"><a href="/search/tags/5426?query="><span class="tagit-label">Performance</span></a></li><li class="tagit-choice tagit-choice-readonly"><a href="/search/tags/1574?query="><span class="tagit-label">Integration</span></a></li><li class="tagit-choice tagit-choice-readonly"><a href="/search/tags/5580?query="><span class="tagit-label">Apache</span></a></li><li class="tagit-choice tagit-choice-readonly"><a href="/search/tags/5976?query="><span class="tagit-label">Tomcat</span></a></li><li class="tagit-choice tagit-choice-readonly"><a href="/search/tags/5556?query="><span class="tagit-label">Ubuntu</span></a></li><li class="tagit-choice tagit-choice-readonly"><a href="/search/tags/5581?query="><span class="tagit-label">re-direct</span></a></li><li class="tagit-choice tagit-choice-readonly"><a href="/search/tags/5427?query="><span class="tagit-label">JasperReports Server</span></a></li></ul></div></div></div></div>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+</div></div><!-- /sidebar-second -->
+      </div><!-- /main -->
+
+    </div><!-- /page-inner -->
+  </div><!-- /page -->
+
+	<div id="footer-wrapper">
+        <div id="consent_blackbar"></div>
+      
+<!-- footer region -->
+<div id="footer" class="region region-footer footer  grid12-12">
+  <div id="block-block-1" class="block block-block first last odd">
+  <div class="gutter inner clearfix">
+	
+		<!-- <span class="block-icon "></span> -->
+	  
+            
+    <div class="content clearfix">
+      <div class="footer-content">
+
+	
+	<div class="footer-content-title">
+		<div class="footer-content-copyright">Copyright &copy; 2019</div>
+		TIBCO Software Inc.<br><small>All rights reserved.</small>
+	</div>
+	
+	<ul class="footer-content-col1">
+		<li><a href="/answers">Answers</a></li>
+		<li><a href="/exchange">Exchange</a></li>
+		<li><a href="/documentation">Documentation</a></li>
+		<li><a href="/wiki">Wiki</a></li>
+		<li><a href="/bug-tracker">Tracker</a></li>
+        <li>&nbsp;</li>
+		<li class="footer-link-sub"><a href="https://www.tibco.com/company/privacy" target="_blank">Privacy Policy</a></li>
+    </ul>
+	
+	<ul class="footer-content-col2">
+		<li><a href="https://www.meetup.com/pro/tibco" target="_blank">User Groups</a></li>
+		<li><a href="/wiki">Contribute to our Wiki</a></li>
+		<li><a href="/bug-tracker">Request a Feature</a></li>
+		<li><a href="/bug-tracker">Report a Bug</a></li>
+		<li><a href="/exchange">Share your Extension</a></li>
+        <li>&nbsp;</li>
+		<li class="footer-link-sub"><a href="https://www.tibco.com/company/terms-of-use" target="_blank">Terms of Use</a></li>
+    </ul>
+	
+	<ul class="footer-content-col3">
+		<li><a href="/project/jasperreports-server">JasperReports Server</a></li>
+		<li><a href="/project/jasperreports-library">JasperReports Library</a></li>
+		<li><a href="/project/jaspersoft-etl">Jaspersoft ETL</a></li>
+		<li><a href="/project/jaspersoft-studio">Jaspersoft Studio</a></li>
+		<li><a href="/project/visualizejs">Visualize.js</a></li>
+        <li><a href="/project/jasperreports-io">JasperReports IO</a></li>
+		<li class="footer-link-sub"><a href="https://www.tibco.com/trademarks" target="_blank">Trademarks</a></li>
+	</ul>
+	
+	<ul class="footer-content-social">
+		<li><a href="https://www.facebook.com/TIBCO" target="_blank" class="social-icon social-icon-facebook"></a></li>
+		<li><a href="http://twitter.com/TIBCO" target="_blank" class="social-icon social-icon-twitter"></a></li>
+		<!-- <li><a href="https://plus.google.com/105174115369651797631/posts" target="_blank" class="social-icon social-icon-google"></a></li> -->
+		<li><a href="https://www.linkedin.com/company/tibco" target="_blank" class="social-icon social-icon-linkedin"></a></li>
+		<li><a href="http://www.youtube.com/user/JaspersoftBISuite" target="_blank" class="social-icon social-icon-youtube"></a></li>
+       <li class="footer-link-sub">  <div id="teconsent"></div></li>
+	</ul>
+
+</div>    </div>
+  </div><!-- /block-inner -->
+</div><!-- /block -->
+</div><!-- /footer -->
+        <div id="teconsent"></div>
+	</div>
+	
+			<a style="display:none;" id="hidden-login-register" href="/modal_forms/nojs/jf-user-login-register?optoutdest=/wiki/connecting-apache-web-server-tomcat-and-writing-re-direct-rules" class="ctools-use-modal ctools-modal-modal-popup-login-register"></a>
+		
+		  <div id='feedback_simple'>
+  <a
+    href='http://www.jaspersoft.com/contact-us'
+    target='_blank'
+    class='feedback_simple-right feedback_simple'
+    style='top: 75%; height: 100px; width: 35px;'>
+      <img
+        alt='Feedback'
+        src='/sites/all/modules/feedback_simple/feedback_simple.gif'
+        height='100'
+        width='35' />
+  </a>
+</div>
+<div><a rel="nofollow" href="http://www.sermonillustrationlibrary.org/blocked/nospiders?mod=8819&qlvc=1939c4353e9dceee4051b05d58b47697" style="display: none;">randomness</a></div><div id="thumbnav_right" class="thumbnav_zone"></div><div id="thumbnav_left" class="thumbnav_zone"></div><div id='thumbnav_controller'>
+<ul>
+</ul>
+</div>
+<noscript><div style="display:none;"><img src="//pixel.quantserve.com/pixel/p--v1JHbEJZ_fje.gif" style="border:none" height="1" width="1" alt="Quantcast"/></div></noscript><script type="text/javascript">
+<!--//--><![CDATA[//><!--
+/** FunnelEnvy Snippet GDPR **/
+function C(k) { return(document.cookie.match("(^|; )"+k+"=([^;]*)")||0)[2]; }
+var kV = C("cmapi_cookie_privacy");
+var consentProvidedValue = (typeof kV != "undefined" && kV.match("2"));
+window.funnelEnvy = new FunnelEnvy( {     customerId: "5a556ca4488a1a4c5398309b",      apiUrl: "//backstage.funnelenvy.com",    consentProvided: consentProvidedValue?true:false  } );
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _qevents = _qevents || [];(function() {var elem = document.createElement("script");elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";elem.async = true;elem.type = "text/javascript";var scpt = document.getElementsByTagName("script")[0];scpt.parentNode.insertBefore(elem, scpt);})();_qevents.push({qacct:"p--v1JHbEJZ_fje"});
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://community.jaspersoft.com/sites/default/files/js/js_TmL_zxeJPVGKGhzGcQISpIpJfUbrfK3Z6hJLMjIdHkA.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function ($) {
+    Drupal.behaviors.tibco_account_service_validate = {
+    attach: function (context, settings) {
+      $("body", context).once("tibco-account-service--validate", function ()
+      {
+        if(typeof sessionStorage["tibco_account_service_validated"] === "undefined")
+          $.get("/tibco-account-service/validate", function(data)
+          {
+            sessionStorage["tibco_account_service_validated"] = data;
+          });
+      });
+  }};
+})(jQuery);
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://community.jaspersoft.com/sites/default/files/js/js_GS40s6kNzEHRhHPbp1DhAn0-1HzHFJcTKnYYtZ-COvk.js"></script>
+  <script type="text/javascript">_satellite.pageBottom();</script></body>
+</html>

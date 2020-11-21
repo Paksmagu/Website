@@ -1,0 +1,165 @@
+-------------- APACHE 2 & Database ------------------------
+
+sudo apt update
+sudo apt dist-upgrade
+sudo apt install apache2
+sudo ufw allow OpenSSH
+sudo ufw allow "Apache Full"
+sudo ufw enable
+sudo nano /etc/ssh/sshd_config
+    before: #PasswordAuthentication yes
+    after:  PasswordAuthentication no
+sudo systemctl restart ssh
+sudo apt install mysql-server
+sudo mysql
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ResentfulTK123';
+    FLUSH PRIVILEGES;
+    CREATE USER 'paksmagu'@'%' IDENTIFIED BY 'onlineResentfulTK123';
+    GRANT ALL ON *.* TO 'paksmagu'@'%';
+    FLUSH PRIVILEGES;
+    exit
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+    before: bind-address    = 127.0.0.1
+    after:  bind-address    = 0.0.0.0
+sudo ufw allow 3306
+sudo systemctl restart mysql
+sudo nano /etc/apache2/sites-available/000-default.conf
+    Add the following to :80 virtual host
+    add: \t\tServerName resentful.tk
+    add: \t\tServerAlias www.resentful.tk
+
+--------- SSL INSIDE HERE 1st time ------------
+
+sudo snap install --classic certbot
+sudo cerbot --apache
+
+------------------------ TOMCAT ----------------------------------------
+
+sudo apt install default-jdk
+sudo groupadd tomcat
+sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+cd /tmp
+curl -O https://downloads.apache.org/tomcat/tomcat-9/v9.0.38/bin/apache-tomcat-9.0.38.tar.gz
+sudo mkdir /opt/tomcat
+sudo tar xzvf apache-tomcat-9.0.38.tar.gz -C /opt/tomcat/ --strip-components=1
+cd /opt/tomcat
+sudo chgrp -R tomcat /opt/tomcat
+sudo chmod -R g+r conf
+sudo chmod g+x conf
+sudo chown -R tomcat webapps/ work/ temp/ logs/
+sudo update-java-alternatives -l
+    Take the last argument and add
+sudo nano /etc/systemd/system/tomcat.service
+    INSERT THE FOLLOWING INTO FILE
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+Environment='CATALINA_OPTS=-Xms512M -Xmx768M -server -XX:+UseParallelGC'
+Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+
+User=tomcat
+Group=tomcat
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl daemon-reload
+sudo systemctl start tomcat
+sudo ufw allow 8080
+sudo systemctl enable tomcat
+sudo nano /opt/tomcat/conf/tomcat-users.xml
+    add to <tomcat-users>:
+    <role rolename="manager-gui"/>
+    <role rolename="admin-gui"/>
+    <role rolename="admin-script"/>
+    <role rolename="manager-script"/>
+    <user username="admin" password="ResentfulTK123" roles="manager-gui,admin-gui,admin-script,manager-script"/>
+sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
+    comment out <Valve>
+sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml
+    comment out <Valve>
+sudo systemctl restart tomcat
+
+--------------------- Tomcat & Apache Proxy ---------------------
+sudo rm /etc/apache2/sites-available/default-ssl.conf
+sudo nano /etc/apache2/sites-available/000-default-le-ssl.conf
+    Add the following under DocumentRoot
+ProxyPreserveHost On
+
+<Location />
+	ProxyPass http://127.0.0.1:8080/
+	ProxyPassReverse http://127.0.0.1:8080/
+</Location>
+
+<Location /static/>
+	ProxyPass !
+</Location>
+
+sudo a2enmod proxy
+sudo a2enmod rewrite
+sudo a2enmod proxy_http
+sudo service apache2 restart
+sudo nano /opt/tomcat/conf/server.xml
+    ADD the final row of attributes
+    <Connector port="8080" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443"
+               scheme="https" secure="true" proxyPort="443" />
+
+sudo ufw status numbered
+    delete 8080 rule
+    sudo ufw delete 8
+    sudo ufw delete 4
+
+sudo reboot
+
+------------------------- Adding more servies -----------------
+
+sudo nano /etc/apache2/sites-available/000-default-le-ssl.conf
+    use the following to add custom servies that are working on some specific port using this example
+    everything that is going to /webapp/ will be redirected to 8081 port
+<Location /webapp/>
+	ProxyPass http://127.0.0.1:8081/
+	ProxyPassReverse http://127.0.0.1:8081/
+</Location>
+
+--------------------------- GIT -------------------------------
+
+sudo apt update
+sudo apt install git
+cat /etc/shells
+which git-shell
+sudo nano /etc/shells
+    # and add the path to git-shell from last command
+sudo adduser --disabled-password --home /home/git git
+su git
+cd
+mkdir ~/.ssh && chmod 700 ~/.ssh
+touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
+    add the keys from /root/.ssh/authorized_keys into this new file!
+
+exit
+sudo chsh git
+
+cd /home/git
+sudo mkdir website-backup.git
+cd website-backup.git && sudo git init --bare && cd ..
+sudo chown -R git.git website-backup.git/
+
+IN intelliJ
+    git remote add origin git@resentful.tk:website-backup.git
