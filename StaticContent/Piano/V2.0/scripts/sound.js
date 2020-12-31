@@ -39,7 +39,8 @@ class Sound {
         });
     };
 
-    schedule (noteList) {
+    schedule(noteList) {
+        ajax.getUserFromNoteList(Array.from(noteList));
         const audioContextTime = this.audioContext.currentTime;
         this.instrument.then(function (piano) {
             piano.schedule(audioContextTime, noteList);

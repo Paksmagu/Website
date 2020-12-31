@@ -2,51 +2,62 @@ let donatorCards;
 
 class DonatorCards {
     constructor() {
-        this.donatorsDiv = undefined;
-        this.listOfDonators = undefined;
+        this.donatorStack = undefined;
+        this.isSwapping = false;
     }
 
     initialize() {
-        this.donatorsDiv = document.getElementById("donators");
+        this.donatorStack = document.getElementById("donator-stack");
+    }
+
+    swap() {
+        let card = document.querySelector("#donator-stack > .donator-card:last-child");
+        card.style.animation = "swapCards 700ms forwards";
+        setTimeout(() => {
+            card.style.animation = "";
+            donatorCards.donatorStack.prepend(card);
+            if ([...donatorCards.donatorStack.children].length > constants.amountOfDonatorsShown) {
+                card.remove();
+            }
+        }, 700);
+        setTimeout(() => {
+            if ([...donatorCards.donatorStack.children].length > 1) {
+                donatorCards.isSwapping = true;
+                donatorCards.swap();
+            }
+        }, constants.cardSwappingRate)
     }
 
     createDonatorInfo(json) {
         for (let jsonIndex = 0; jsonIndex < json.length; jsonIndex++) {
             let jsonRow = json[jsonIndex];
-            let card = document.createElement("div");
-            card.classList.add("card");
-            card.style.width = "15rem";
-            let cardBody = document.createElement("div");
-            cardBody.classList.add("card-body");
-            let firstName = jsonRow["first_name"];
-            let lastName = jsonRow["last_name"];
-            let donationText = jsonRow["donation_text"];
-            let note = jsonRow["note"];
-            let personName = document.createElement("h5");
-            personName.classList.add("card-title");
-            personName.textContent = `${firstName} ${lastName}`;
-            let noteDonated = document.createElement("h6");
-            noteDonated.classList.add("card-subtitle");
-            noteDonated.classList.add("mb-2");
-            noteDonated.classList.add("text-muted");
-            noteDonated.textContent = `Annetus noodile: ${note}`;
-            let donationPar = document.createElement("p");
-            donationPar.classList.add("card-text");
-            donationPar.textContent = donationText;
-            cardBody.append(personName);
-            cardBody.append(noteDonated);
-            cardBody.append(donationPar);
-            card.append(cardBody);
-            this.donatorsDiv.append(card);
+            let fullName = jsonRow.first_name + " " + jsonRow.last_name;
+
+            let donatorCard = document.createElement("div")
+            donatorCard.classList.add("donator-card")
+            let nameSpan = document.createElement("div")
+            let bold = document.createElement("b")
+            nameSpan.classList.add("donator-name")
+            bold.innerText = fullName;
+            nameSpan.appendChild(bold)
+
+            let donationElement = document.createElement("div");
+            donationElement.classList.add("text-concat");
+            donationElement.innerText = jsonRow.donation_text;
+
+            donatorCard.appendChild(nameSpan);
+            donatorCard.appendChild(donationElement);
+
+            this.donatorStack.prepend(donatorCard);
+        }
+        if (json.length > 1 && !donatorCards.isSwapping) {
+            setTimeout(() => {
+                // donatorCards.swap();
+            }, constants.cardSwappingRate)
         }
 
     }
 
-    clearDonatorInfo() {
-        while (this.donatorsDiv.firstChild) {
-            this.donatorsDiv.removeChild(this.donatorsDiv.firstChild);
-        }
-    }
 }
 
 window.addEventListener('load', function (ev) {

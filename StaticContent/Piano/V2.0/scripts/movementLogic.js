@@ -40,16 +40,29 @@ class Movement {
         const key = canvasObject.getNoteFromList(noteFromMapping)
         if (key == null) return;
         else if (key instanceof Array) {
+            let noteList = [];
             for (let i = 0; i < key.length; i++) {
-                movementLogic.keyboardLogic(key[i] + canvasObject.playableOctave, keyEvent, keyPressed);
+                noteList.push(key[i] + canvasObject.playableOctave)
             }
-            return;
-        }
-        if (keyPressed) {
-            key.mouse = constants.pressed;
-            sound.play(key, constants.pressed);
+            if (keyPressed) {
+                noteList.forEach(note => {
+                    const noteKey = canvasObject.getNoteFromList(note);
+                    noteKey.mouse = constants.pressed;
+                })
+                sound.schedule(noteList)
+            } else {
+                noteList.forEach(note => {
+                    const noteKey = canvasObject.getNoteFromList(note);
+                    noteKey.mouse = constants.released;
+                })
+            }
         } else {
-            key.mouse = constants.released;
+            if (keyPressed) {
+                key.mouse = constants.pressed;
+                sound.play(key, constants.pressed);
+            } else {
+                key.mouse = constants.released;
+            }
         }
         canvasObject.render();
     }

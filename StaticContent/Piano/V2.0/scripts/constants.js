@@ -7,6 +7,9 @@ class  Constants {
 
         this.widthElement = "content_a"
 
+        this.cardSwappingRate = 4000 //in Millisec
+        this.amountOfDonatorsShown = 4
+
         this.chords = [
             {chord: "AChord", majorNotes: ['A', 'C#', 'E'], minorNotes: ['A', 'C', 'E']},
             {chord: "CChord", majorNotes: ['C', 'E', 'G'], minorNotes: ['C', 'D#', 'G']},
