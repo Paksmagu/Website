@@ -1,4 +1,4 @@
-cd "C:\Users\Paksmagu\AppData\Roaming\JetBrains\IntelliJIdea2020.1"
+cd "C:\Users\Paksmagu\AppData\Roaming\JetBrains\IntelliJIdea2020.2"
 
 rmdir "eval" /s /q
 

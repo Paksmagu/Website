@@ -2,7 +2,9 @@
 
 sudo apt update
 sudo apt dist-upgrade
+y
 sudo apt install apache2
+y
 sudo ufw allow OpenSSH
 sudo ufw allow "Apache Full"
 sudo ufw enable
@@ -11,6 +13,7 @@ sudo nano /etc/ssh/sshd_config
     after:  PasswordAuthentication no
 sudo systemctl restart ssh
 sudo apt install mysql-server
+y
 sudo mysql
     ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ResentfulTK123';
     FLUSH PRIVILEGES;
@@ -27,6 +30,8 @@ sudo nano /etc/apache2/sites-available/000-default.conf
     Add the following to :80 virtual host
     add: \t\tServerName resentful.tk
     add: \t\tServerAlias www.resentful.tk
+sudo apt install php libapache2-mod-php php-mysql
+y
 
 --------- SSL INSIDE HERE 1st time ------------
 
@@ -62,7 +67,7 @@ Environment=JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
 Environment=CATALINA_HOME=/opt/tomcat
 Environment=CATALINA_BASE=/opt/tomcat
-Environment='CATALINA_OPTS=-Xms512M -Xmx768M -server -XX:+UseParallelGC'
+Environment='CATALINA_OPTS=-Xms512M -Xmx512M -server -XX:+UseParallelGC'
 Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
 
 ExecStart=/opt/tomcat/bin/startup.sh
@@ -115,11 +120,11 @@ sudo a2enmod rewrite
 sudo a2enmod proxy_http
 sudo service apache2 restart
 sudo nano /opt/tomcat/conf/server.xml
-    ADD the final row of attributes
+    ADD the final row of attributes to the AJP
     <Connector port="8080" protocol="HTTP/1.1"
                connectionTimeout="20000"
                redirectPort="8443"
-               scheme="https" secure="true" proxyPort="443" />
+               scheme="https" secure="true" secureRequired="false" proxyPort="443" />
 
 sudo ufw status numbered
     delete 8080 rule
@@ -163,3 +168,13 @@ sudo chown -R git.git website-backup.git/
 
 IN intelliJ
     git remote add origin git@resentful.tk:website-backup.git
+
+
+
+
+----------------------------------------------------------------
+                            DISABLE & ENABLE SSL ON APACHE
+
+sudo a2dismod ssl
+sudo service apache2 restart
+sudo a2enmod ssl
