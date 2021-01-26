@@ -52,7 +52,7 @@ class DonatorCards {
         }
         if (json.length > 1 && !donatorCards.isSwapping) {
             setTimeout(() => {
-                // donatorCards.swap();
+                donatorCards.swap();
             }, constants.cardSwappingRate)
         }
 
