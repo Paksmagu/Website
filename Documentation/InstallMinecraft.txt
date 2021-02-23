@@ -3,8 +3,12 @@ sudo ufw allow 25565
 cd /home
 mkdir MineCraft
 cd MineCraft
-wget https://launcher.mojang.com/v1/objects/c5f6fb23c3876461d46ec380421e42b289789530/server.jar
+wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
 screen
-java -Xms768M -Xmx768M -jar minecraft_1.16.2.jar nogui
+    cntrl + a + d to detach
+    screen -list to see list
+    screen -r [id] to get back
+java -Xms1024M -Xmx4096M -jar server.jar nogui
 nano eula.txt
     change false -> true
+nano server.properties

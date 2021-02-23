@@ -3,7 +3,7 @@ class Database {
     private string $host = "localhost";
     private string $dbName = "virtualPiano";
     private string $username = "paksmagu";
-    private string $password = "onlineResentfulTK123";
+    private string $password = "onlineResentfulTK1234";
     private string $charSet = "utf8";
     private array $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
