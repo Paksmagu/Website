@@ -10,7 +10,7 @@ FROM Donators
     INNER JOIN Notes ON Notes.id = Donators.note_id 
 WHERE Notes.note = ?");
     $statement->execute([$_GET['id']]);
-        echo json_encode($statement->fetchAll());
+    echo json_encode($statement->fetchAll());
 } else {
     $error = new stdClass();
     $error->status = 404;

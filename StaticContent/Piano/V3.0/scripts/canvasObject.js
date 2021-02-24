@@ -184,7 +184,7 @@ class Canvas {
             const totalOffset = constants.round((keyInOctave * this.whiteKeyWidth) + octaveOffset + whiteKeyBorderOffset, 2);
             const whiteKey = this.newKey(totalOffset, this.whiteKeyWidth, this.whiteKeyHeight,
                 this.createNoteForKey(constants.notes[keyIndex], octaveIndex),
-                keyInOctave, octaveIndex + constants.lowestOctave, true); //+lowestOctave bcz index starts from 0 and we want Octaves 2-6
+                keyInOctave, octaveIndex, true);
             this.whiteKeys.push(whiteKey);
 
             whiteKeyBorderOffset += constants.borderThickness;
@@ -233,7 +233,7 @@ class Canvas {
     };
 
     createNoteForKey(note, octaveIndex) {
-        return note + (octaveIndex + constants.lowestOctave); //+lowestOctave bcz index starts from 0 and we want from sepcific octave
+        return note + octaveIndex;
     }
 
     newKey(totalOffset, width, height, note, keyInOctave, octaveIndex, whiteKey) {
@@ -242,6 +242,8 @@ class Canvas {
         key.x = totalOffset + constants.halfBorderThickness;
         key.y = constants.halfBorderThickness;
         key.note = note;
+        key.noteId = constants.getIDFromNote(note);
+        console.log("Note: " + key.note + " | noteID: " + key.noteId);
         key.mouse = constants.released;
         key.keybind = KeyBindMapping.getNoteMapping(note);
         key.octaveIndex = octaveIndex;

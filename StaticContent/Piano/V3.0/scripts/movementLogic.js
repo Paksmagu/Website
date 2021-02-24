@@ -13,7 +13,7 @@ class Movement {
     setDonationText(key) {
         this.previousePressedKey = key;
         let donationText = document.getElementById("donationText");
-        donationText.innerText = "Noot millele annetate: " + this.previousePressedKey.note;
+        donationText.innerText = "Noot millele annetate: " + this.previousePressedKey.note + " (Noodi ID panga lingi jaoks: " + this.previousePressedKey.noteId + ")";
         document.getElementById("bankLinks").style.display = "";
     }
 
