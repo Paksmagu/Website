@@ -6,15 +6,20 @@ sudo apt install apache2
 sudo ufw allow OpenSSH
 sudo ufw allow "Apache Full"
 sudo ufw enable
+cd ~/
+mkdir .ssh
+cd .ssh
+nano authorized_keys
+    add your public key in there
 sudo nano /etc/ssh/sshd_config
     before: #PasswordAuthentication yes
     after:  PasswordAuthentication no
 sudo systemctl restart ssh
 sudo apt install mysql-server
 sudo mysql
-    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ResentfulTK123';
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ResentfulTK1234';
     FLUSH PRIVILEGES;
-    CREATE USER 'paksmagu'@'%' IDENTIFIED BY 'onlineResentfulTK123';
+    CREATE USER 'paksmagu'@'%' IDENTIFIED BY 'onlineResentfulTK1234';
     GRANT ALL ON *.* TO 'paksmagu'@'%';
     FLUSH PRIVILEGES;
     exit
@@ -28,6 +33,11 @@ sudo nano /etc/apache2/sites-available/000-default.conf
     add: \t\tServerName resentful.tk
     add: \t\tServerAlias www.resentful.tk
 
+--------- Installing PHP ------------
+
+sudo apt install php libapache2-mod-php php-mysql
+sudo systemctl restart apache2
+
 --------- SSL INSIDE HERE 1st time ------------
 
 sudo snap install --classic certbot
@@ -39,16 +49,16 @@ sudo apt install default-jdk
 sudo groupadd tomcat
 sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 cd /tmp
-curl -O https://downloads.apache.org/tomcat/tomcat-9/v9.0.38/bin/apache-tomcat-9.0.38.tar.gz
+curl -O https://downloads.apache.org/tomcat/tomcat-10/v10.0.2/bin/apache-tomcat-10.0.2.tar.gz
 sudo mkdir /opt/tomcat
-sudo tar xzvf apache-tomcat-9.0.38.tar.gz -C /opt/tomcat/ --strip-components=1
+sudo tar xzvf apache-tomcat-10.0.2.tar.gz -C /opt/tomcat/ --strip-components=1
 cd /opt/tomcat
 sudo chgrp -R tomcat /opt/tomcat
 sudo chmod -R g+r conf
 sudo chmod g+x conf
 sudo chown -R tomcat webapps/ work/ temp/ logs/
 sudo update-java-alternatives -l
-    Take the last argument and add
+    Take the last argument and add : /usr/lib/jvm/java-1.11.0-openjdk-amd64
 sudo nano /etc/systemd/system/tomcat.service
     INSERT THE FOLLOWING INTO FILE
 [Unit]
@@ -62,7 +72,7 @@ Environment=JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
 Environment=CATALINA_HOME=/opt/tomcat
 Environment=CATALINA_BASE=/opt/tomcat
-Environment='CATALINA_OPTS=-Xms512M -Xmx768M -server -XX:+UseParallelGC'
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
 Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
 
 ExecStart=/opt/tomcat/bin/startup.sh
@@ -88,7 +98,7 @@ sudo nano /opt/tomcat/conf/tomcat-users.xml
     <role rolename="admin-gui"/>
     <role rolename="admin-script"/>
     <role rolename="manager-script"/>
-    <user username="admin" password="ResentfulTK123" roles="manager-gui,admin-gui,admin-script,manager-script"/>
+    <user username="admin" password="onlineResentfulTK1234" roles="manager-gui,admin-gui,admin-script,manager-script"/>
 sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
     comment out <Valve>
 sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml
@@ -109,6 +119,16 @@ ProxyPreserveHost On
 <Location /static/>
 	ProxyPass !
 </Location>
+<Location /V2.0/>
+	ProxyPass !
+</Location>
+<Location /V3.0/>
+	ProxyPass !
+</Location>
+
+    Near the RewriteEngine add the following lines
+    RewriteCond %{REQUEST_URI} !/V2.0/
+    RewriteCond %{REQUEST_URI} !/V3.0/
 
 sudo a2enmod proxy
 sudo a2enmod rewrite
@@ -139,6 +159,7 @@ sudo nano /etc/apache2/sites-available/000-default-le-ssl.conf
 </Location>
 
 --------------------------- GIT -------------------------------
+--------------------------- DEPRECATED (using GitHub) -------------------------------
 
 sudo apt update
 sudo apt install git
