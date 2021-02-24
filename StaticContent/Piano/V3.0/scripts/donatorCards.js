@@ -11,6 +11,7 @@ class DonatorCards {
     }
 
     swap() {
+        donatorCards.isSwapping = true;
         let card = document.querySelector("#donator-stack > .donator-card:last-child");
         card.style.animation = "swapCards 700ms forwards";
         setTimeout(() => {
@@ -22,7 +23,6 @@ class DonatorCards {
         }, 700);
         setTimeout(() => {
             if ([...donatorCards.donatorStack.children].length > 1) {
-                donatorCards.isSwapping = true;
                 donatorCards.swap();
             }
         }, constants.cardSwappingRate)

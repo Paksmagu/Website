@@ -136,7 +136,7 @@ class Canvas {
     }
 
     renderTooltips(keyList, keyWidth, keyHeight, isWhiteKey) {
-        this.canvasContext.font = keyWidth / 1.5 + "px serif";
+        this.canvasContext.font = keyWidth / 1 + "px serif";
         if (isWhiteKey) this.canvasContext.fillStyle = "black";
         else this.canvasContext.fillStyle = "white";
 
@@ -185,7 +185,6 @@ class Canvas {
             const whiteKey = this.newKey(totalOffset, this.whiteKeyWidth, this.whiteKeyHeight,
                 this.createNoteForKey(constants.notes[keyIndex], octaveIndex),
                 keyInOctave, octaveIndex + constants.lowestOctave, true); //+lowestOctave bcz index starts from 0 and we want Octaves 2-6
-            console.log(whiteKey)
             this.whiteKeys.push(whiteKey);
 
             whiteKeyBorderOffset += constants.borderThickness;

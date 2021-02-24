@@ -398,6 +398,39 @@ color:#890128">EVAKS</span></b><b><span style="font-size:13.0pt;color:#890128"><
                                onchange="canvasObject.setDisplayTooltips(this.checked);">
                     </p>
                     <div id="donator-stack" class="donator-stack"></div>
+
+                    <div id="donateButtonDiv">
+                        <button type="button" id="donateButton" onclick="donatePopup.showPopUp()">Anneta</button>
+                    </div>
+
+                    <div id="donateModal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Annetused muusikakoolile</h2>
+                            </div>
+                            <hr>
+                            <div class="modal-body">
+                                <p id="donationText">Te ei ole hetkel valinud nooti mille poolt annetada.</p>
+                                <p>Vajutades klaverile, valite just selle noodi, mille poolt tahate annetada.</p>
+                            </div>
+                            <div class="modal-footer" id="bankLinks" style="display: none">
+                                <hr>
+                                <p>
+                                    <img style="width: auto"
+                                         src="https://static.maksekeskus.ee/img/channel/lnd/swedbank.png">
+                                    <img style="width: auto"
+                                         src="https://static.maksekeskus.ee/img/channel/lnd/lhv.png">
+                                    <img style="width: auto"
+                                         src="https://static.maksekeskus.ee/img/channel/lnd/seb.png">
+                                    <img style="width: auto"
+                                         src="https://static.maksekeskus.ee/img/channel/lnd/luminor.png">
+                                    <img style="width: auto"
+                                         src="https://static.maksekeskus.ee/img/channel/lnd/krediidipank.png">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                     <!-- VAJALIKUD KLAVERI JAOKS -->
 
                     <p style="margin: 0cm 0cm 0.0001pt; text-align: center;">&nbsp;</p>
@@ -479,6 +512,7 @@ Direktor: +372 767 9617</span><br/>
 <script src="https://resentful.tk/V3.0/scripts/movementLogic.js"></script>
 
 <script src="https://resentful.tk/V3.0/scripts/sound.js"></script>
+<script src="https://resentful.tk/V3.0/scripts/donatePopup.js"></script>
 <!-- VAJALIKUD KLAVERI JAOKS -->
 
 </body>

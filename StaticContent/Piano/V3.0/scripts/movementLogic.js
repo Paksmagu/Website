@@ -4,9 +4,17 @@ class Movement {
     constructor() {
         this.previouseKey = undefined;
         this.pressedDownKey = undefined;
+        this.previousePressedKey = undefined;
         this.mousePressed = false;
         this.keyList = {};
         this.eventTypes = {};
+    }
+
+    setDonationText(key) {
+        this.previousePressedKey = key;
+        let donationText = document.getElementById("donationText");
+        donationText.innerText = "Noot millele annetate: " + this.previousePressedKey.note;
+        document.getElementById("bankLinks").style.display = "";
     }
 
     resetPreviousValues() {
@@ -59,6 +67,7 @@ class Movement {
         } else {
             if (keyPressed) {
                 key.mouse = constants.pressed;
+                movementLogic.setDonationText(key);
                 sound.play(key, constants.pressed);
             } else {
                 key.mouse = constants.released;
@@ -108,10 +117,11 @@ class Movement {
         movementLogic.mousePressed = true;
         const key = movementLogic.collides(event);
         if (key == null) return false;
+        movementLogic.pressedDownKey = key;
+        movementLogic.setDonationText(key);
         key.mouse = constants.pressed;
         sound.play(key, constants.pressed);
         canvasObject.render();
-        movementLogic.pressedDownKey = key;
         return false;
     };
 
